@@ -1,0 +1,155 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0%;
+    padding: 0%;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Grunge',sans-serif;
+}
+#header{
+    padding: 0px 20px;
+    display: inline-flex;
+    justify-content: space-between;
+    background-color:#DBA879;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+i.fa-shopping-bag{
+    padding: 20px;
+    font-size:50px;
+}
+#cartcount{
+    background-color: red;
+    color: white;
+    width: 25px;
+    font-size: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top:10px;
+    right:30px;
+}
+img{
+    width: 100%;
+}
+#container{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#container1, #container2 ,#container3,#container4{
+    flex:1;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    background-color: #DBA879;
+    padding: 20px 20px;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+ 
+}
+#woman,#men,#elctonics,#jewelery{
+    height: 350px;
+    width: 350px;
+    border-radius: 175px;
+  
+}
+#categories{
+    font-size: 50PX;
+    font-weight: bolder;
+    color: #DBA879;
+}
+#seebest{
+    font-size: 50px;
+}
+#products  ,#cartPage{
+    background-color: #e2c1a3;
+}
+#productDetailsPage{
+    background-color: white;
+}
+
+#productDetailsPage {
+    padding: 30px;
+}
+#allproducts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+
+}
+#allproducts img,#cartPage img {
+    height: 200px;
+    width:200px;
+}
+#allproducts p,#productDetails p,#cartPage p { 
+    color: green;
+    font-size: 40px;
+ }
+h2{ 
+    color:rgb(167, 96, 26);
+    max-width: 1700px; 
+    font-size: 20px
+ }
+h1{
+    color:#5b3714;
+    font-size: 40px
+}  
+#productDetails img{
+    height: 500px;
+    width:500px;
+}
+#allproducts div {
+    background-color: white;
+    padding: 10px 30px;
+    max-width: 550px; 
+    color:#5b3714;
+ } 
+ #productDetails div{
+    background-color: #e2c1a3;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+.counter{
+    font-size: 40px;
+    position: relative;
+    right: 560px
+}
+button{
+    height: 50px;
+    width: 100px;
+    border-radius: 60px;
+    border:none;
+    box-shadow:9px 9px 3px #C4C4C4 ;
+    font-size: 40px;
+    cursor: pointer;
+    background: linear-gradient(to bottom right,#ba722a,#F1F1F1 );
+}
+button:focus{
+    background: linear-gradient(to bottom right,#5c2f02 ,#F1F1F1 );
+}
+button:hover{
+    background: linear-gradient(to bottom right,#5c2f02,#F1F1F1 );
+}
+#cartbtn{
+    height: 100px;
+    width: 260px;
+    border-radius: 60px;
+    position: relative;
+    left: 460px;
+}
+span{
+    white-space: pre-wrap;
+}
+#totalprice{
+   position: fixed;
+   bottom: 0;
+}

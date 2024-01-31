@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>best Products</title>
+</head>
+<body id="products">
+    <div id="allproducts"></div>
+
+    <script>
+        let request = new XMLHttpRequest();
+        let apilink = "https://fakestoreapi.com/products";
+        request.open("GET", apilink);
+        request.responseType = "json";
+        request.send();
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 300) {
+                let products = request.response;
+                const bestproducts = document.getElementById('allproducts');
+
+                products.forEach(product => {
+                    const productdiv = document.createElement('div');
+                    productdiv.innerHTML = `
+                        <h1>${product.title}</h1>
+                        <img src="${product.image}">
+                        <p>${product.price}</p>
+                    `;
+                    bestproducts.appendChild(productdiv);
+                    productdiv.addEventListener('click', () => {
+                        window.location.href =`product_details.html?id=${product.id}`;
+                    });
+                });
+            } else {
+                alert("Error fetching products");
+            }
+        };
+    </script>
+</body>
+</html>

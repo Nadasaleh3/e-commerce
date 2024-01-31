@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Product Details</title>
+</head>
+<body id="productDetailsPage">
+    <header></header>
+    <div id="productDetails"></div>
+    <div>
+        <button class='counter'onclick="decrement()">-</button>
+        <span> </span>
+        <span class='counter' id="quantity">0</span>
+        <span> </span>
+        <button class='counter' onclick="increment()">+</button>
+        <button id="cartbtn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <script>
+        let quantity = 0; 
+        const quantityElement = document.getElementById('quantity');
+        function decrement() {
+            if (quantity > 0) {
+                quantity--;
+                updateQuantity();
+            }
+        }
+
+        function increment() {
+            quantity++;
+            updateQuantity();
+        }
+
+        function updateQuantity() {
+            quantityElement.textContent = quantity;
+        }
+function addToCart() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    fetch(`https://fakestoreapi.com/products/${productId}`)
+        .then(response => response.json())
+        .then(productDetails => {
+            productDetails.quantity = quantity;
+            productDetails.totalPrice = productDetails.price * quantity;
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            cart.push(productDetails);
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart successfully!');
+
+          
+        })
+        .catch(error => console.error('Error fetching product details:', error));
+}
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        fetch(`https://fakestoreapi.com/products/${productId}`)
+            .then(response => response.json())
+            .then(productDetails => {
+                const productDetailsContainer = document.getElementById('productDetails');
+                productDetailsContainer.innerHTML = `
+                    <h1>${productDetails.title}</h1>
+                    <div></div>
+                    <img src="${productDetails.image}">
+                    <p>${productDetails.price}</p>
+                    <h1>Description..</h1>
+                    <h2>${productDetails.description}</h2>
+                `;
+            })
+            .catch(error => console.error('Error fetching product details:', error));
+    </script>
+</body>
+</html>
+
+
+
+
+ 
